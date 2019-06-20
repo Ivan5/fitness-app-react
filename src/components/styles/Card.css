@@ -1,8 +1,8 @@
 .card {
   border: none;
   border-radius: 8px;
-  background: url("../../images/circles.png") no-repeat,
-    linear-gradient(to right, #a74cf2, #617bfb);
+  /*background: url("../../images/circles.png") no-repeat,
+    linear-gradient(to right, #a74cf2, #617bfb);*/
 }
 .Fitness-User-Info {
   margin-top: 50px;
