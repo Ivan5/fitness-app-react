@@ -6,6 +6,7 @@ function ExerciseList(props) {
       {props.exercises.map(item => {
         return (
           <Card
+            key={item.id}
             title={item.title}
             description={item.description}
             img={item.img}
