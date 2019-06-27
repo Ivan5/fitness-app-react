@@ -3,15 +3,12 @@ import PropTypes from "prop-types";
 
 class ExerciseForm extends React.Component {
   state = {};
-  handleSubmit = e => {
-    e.preventDefault();
-  };
 
   render() {
-    const { onChange, form } = this.props;
+    const { onChange, onSubmit, form } = this.props;
     return (
       <div className="container">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={onSubmit}>
           <div className="form-group">
             <input
               type="text"

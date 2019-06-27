@@ -14,6 +14,25 @@ class ExerciseNew extends React.Component {
       }
     });
   };
+  handleSubmit = async e => {
+    e.preventDefault();
+    try {
+      let config = {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(this.state.form)
+      };
+
+      let res = await fetch("http://localhost:8000/api/exercises", config);
+      let json = await res.json();
+      console.log(json);
+    } catch (error) {
+    } finally {
+    }
+  };
   render() {
     return (
       <div className="row">
@@ -21,7 +40,11 @@ class ExerciseNew extends React.Component {
           <Card {...this.state.form} />
         </div>
         <div className="col-sm">
-          <ExerciseForm onChange={this.handleChange} form={this.state.form} />
+          <ExerciseForm
+            onChange={this.handleChange}
+            onSubmit={this.handleSubmit}
+            form={this.state.form}
+          />
         </div>
       </div>
     );
