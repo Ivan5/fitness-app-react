@@ -4,11 +4,10 @@ import Welcome from "../components/Welcome";
 import AddButton from "../components/AddButton";
 import Loading from "../components/Loading";
 import useFetch from "../hooks/useFetch";
+import url from "../config";
 
 const Exercises = () => {
-  const { data, loading, error } = useFetch(
-    "http://localhost:8000/api/exercises"
-  );
+  const { data, loading, error } = useFetch(`${url}/exercises`);
   if (loading) return <Loading />;
   return (
     <>
