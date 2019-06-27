@@ -4,7 +4,15 @@ import Card from "../components/Card";
 
 class ExerciseNew extends React.Component {
   state = {
-    form: { title: "", description: "", img: "", leftColor: "", rightColor: "" }
+    form: {
+      title: "",
+      description: "",
+      img: "",
+      leftColor: "",
+      rightColor: ""
+    },
+    error: null,
+    loaing: false
   };
   handleChange = e => {
     this.setState({
@@ -15,6 +23,9 @@ class ExerciseNew extends React.Component {
     });
   };
   handleSubmit = async e => {
+    this.setState({
+      loaing: true
+    });
     e.preventDefault();
     try {
       let config = {
@@ -28,8 +39,16 @@ class ExerciseNew extends React.Component {
 
       let res = await fetch("http://localhost:8000/api/exercises", config);
       let json = await res.json();
-      console.log(json);
+      this.setState({
+        loaing: false
+      });
+
+      this.props.history.push("/exercises");
     } catch (error) {
+      this.setState({
+        loaing: true,
+        error
+      });
     } finally {
     }
   };

@@ -34,11 +34,11 @@ class Exercises extends Component {
   render() {
     if (this.state.loading) return <Loading />;
     return (
-      <div>
+      <>
         <Welcome username="Christ" />
         <ExerciseList exercises={this.state.data} />
         <AddButton />
-      </div>
+      </>
     );
   }
 }
